@@ -1,1 +1,42 @@
-
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: testroutewebui
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: testroutewebui
+    spec:
+      containers:
+      - name: testroutewebui
+        image: acrdenkers.azurecr.io/deliverymanagement-webui:latest
+        ports:
+        - containerPort: 80
+        env:
+          - name: URLAPI_REPLACE
+            value: http://137.116.115.128/deliverymanagement/route-manager/v1
+          - name: URLAPI_DRIVERS_REPLACE
+            value: http://dairy-app.azurewebsites.net/fuel/api
+          - name: LOCATION_URLAPI_REPLACE
+            value: http://w2applocation.satrack.com/services/
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m		
+      imagePullSecrets:
+      - name: keyacr
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: testroutewebui
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: testroutewebui
