@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: drivermanager
-        image: acrdenkers.azurecr.io/driver-manager-api:1032
+        image: acrdenkers.azurecr.io/driver-manager-api:1039
         ports:
         - containerPort: 80
         env:
