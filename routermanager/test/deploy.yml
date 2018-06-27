@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: testroutemanager
-        image: acrdenkers.azurecr.io/deliverymanagement.route-manager:latest
+        image: acrdenkers.azurecr.io/deliverymanagement.route-manager:1026
         ports:
         - containerPort: 80
         env:
