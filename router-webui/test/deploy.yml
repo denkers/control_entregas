@@ -16,7 +16,7 @@ spec:
         - containerPort: 80
         env:
           - name: URLAPI_REPLACE
-            value: http://137.116.115.128/deliverymanagement/route-manager/v1
+            value: http://137.135.91.122/deliverymanagement/route-manager/v1
           - name: URLAPI_DRIVERS_REPLACE
             value: http://dairy-app.azurewebsites.net/fuel/api
           - name: LOCATION_URLAPI_REPLACE
