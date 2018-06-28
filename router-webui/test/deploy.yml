@@ -11,14 +11,14 @@ spec:
     spec:
       containers:
       - name: routewebui
-        image: acrdenkers.azurecr.io/deliverymanagement-webui:20180627.4
+        image: acrdenkers.azurecr.io/deliverymanagement-webui:20180628.1
         ports:
         - containerPort: 80
         env:
           - name: APPAPI
             value: http://137.135.91.122/deliverymanagement/route-manager/v1
           - name: DRIVERSAPI
-            value: http://dairy-app.azurewebsites.net/fuel/api
+            value: http://13.68.133.105/driver/diver-manager-api/v1
           - name: LOCATIONAPI
             value: http://w2applocation.satrack.com/services/
         resources:
