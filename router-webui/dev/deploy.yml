@@ -16,7 +16,7 @@ spec:
         - containerPort: 80
         env:
           - name: APPAPI
-            value: http://routemanager/deliverymanagement/route-manager/v1
+            value: http://40.121.66.200/deliverymanagement/route-manager/v1
           - name: DRIVERSAPI
             value: http://40.114.78.82/driver/diver-manager-api/v1
           - name: LOCATIONAPI
