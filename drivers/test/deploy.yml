@@ -1,0 +1,38 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: drivermanager
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: drivermanager
+    spec:
+      containers:
+      - name: drivermanager
+        image: acrdenkers.azurecr.io/driver-manager-api:1039
+        ports:
+        - containerPort: 80
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: test
+        resources:
+          requests:
+            cpu: 50m
+          limits:
+            cpu: 100m		
+      imagePullSecrets:
+      - name: keyacr
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: drivermanager
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: drivermanager
