@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: routewebui
-        image: acrdenkers.azurecr.io/deliverymanagement-webui:20180628.1
+        image: acrdenkers.azurecr.io/deliverymanagement-webui:20180703.4
         ports:
         - containerPort: 80
         env:
@@ -23,9 +23,9 @@ spec:
             value: http://w2applocation.satrack.com/services/
         resources:
           requests:
-            cpu: 250m
+            cpu: 50m
           limits:
-            cpu: 500m		
+            cpu: 150m		
       imagePullSecrets:
       - name: keyacr
       
