@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: routewebui
-        image: acrdenkers.azurecr.io/deliverymanagement-webui:20180703.8
+        image: acrdenkers.azurecr.io/deliverymanagement-webui:20180703.9
         ports:
         - containerPort: 80
         env:
