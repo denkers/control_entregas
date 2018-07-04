@@ -17,11 +17,7 @@ spec:
         env:
           - name: SPRING_PROFILES_ACTIVE
             value: test
-        resources:
-          requests:
-            cpu: 100m
-          limits:
-            cpu: 200m		
+        resources:	
       imagePullSecrets:
       - name: keyacr
       
