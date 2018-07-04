@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: routemanager
-        image: acrdenkers.azurecr.io/deliverymanagement.route-manager:1100
+        image: acrdenkers.azurecr.io/deliverymanagement.route-manager:1110
         ports:
         - containerPort: 80
         env:
@@ -19,9 +19,9 @@ spec:
             value: dev
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
           limits:
-            cpu: 150m		
+            cpu: 200m		
       imagePullSecrets:
       - name: keyacr
       
