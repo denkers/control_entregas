@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: routemanager
 spec:
-  replicas: 1
+  replicas: 4
   template:
     metadata:
       labels:
