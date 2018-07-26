@@ -11,23 +11,20 @@ spec:
     spec:
       containers:
       - name: routewebui
-        image: acrdenkers.azurecr.io/deliverymanagement-webui:20180704.3
+        image: acrsatrack.azurecr.io/deliverymanagement-webui:1315
         ports:
         - containerPort: 80
         env:
           - name: APPAPI
-            value: http://137.135.91.122/deliverymanagement/route-manager/v1
+            value: http://routeapi.satrack.com/deliverymanagement/route-manager/v1
           - name: DRIVERSAPI
-            value: http://13.68.133.105/driver/diver-manager-api/v1
+            value: http://driverapi.satrack.com/driver/diver-manager-api/v1
           - name: LOCATIONAPI
             value: http://w2applocation.satrack.com/services/
-        resources:
-          requests:
-            cpu: 50m
-          limits:
-            cpu: 150m		
+          - name: SATRACKAPI
+            value: http://webcloud.satrack.com/	
       imagePullSecrets:
-      - name: keyacr
+      - name: registrosatrack
       
 ---
 apiVersion: v1
