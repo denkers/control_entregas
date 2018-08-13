@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: routemanager
+  name: routemanagertest
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-        app: routemanager
+        app: routemanagertest
     spec:
       containers:
-      - name: routemanager
-        image: acrdenkers.azurecr.io/deliverymanagement.route-manager:1110
+      - name: routemanagertest
+        image: acrdenkers.azurecr.io/deliverymanagement.route-manager:1423
         ports:
         - containerPort: 80
         env:
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: routemanager
+  name: routemanagertest
   labels:
-    name: routemanager
+    name: routemanagertest
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - port: 80
   selector:
-    app: routemanager
+    app: routemanagertest
