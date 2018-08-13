@@ -31,5 +31,6 @@ spec:
   type: ClusterIP
   ports:
   - port: 80
+    targetPort: 30486
   selector:
     app: routemanagertest
