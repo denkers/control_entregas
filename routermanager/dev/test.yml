@@ -1,35 +1,36 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: routemanagertest
+  name: drivermanagertest
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: routemanagertest
+        app: drivermanagertest
     spec:
       containers:
-      - name: routemanagertest
-        image: acrdenkers.azurecr.io/deliverymanagement.route-manager:1423
+      - name: drivermanagertest
+        image: acrsatrack.azurecr.io/driver-manager-api:1223
         ports:
         - containerPort: 80
         env:
           - name: SPRING_PROFILES_ACTIVE
-            value: dev	
+            value: prod
+        resources:
+          limits:
+            cpu: 150m         
       imagePullSecrets:
-      - name: keyacr
+      - name: registrosatrack
       
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: routemanagertest
-  labels:
-    name: routemanagertest
+  name: drivermanagertest
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
-  - port: 30486
+  - port: 80
   selector:
-    app: routemanagertest
+    app: drivermanagertest
